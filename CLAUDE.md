@@ -104,7 +104,11 @@ A-SPICE 절차를 따릅니다. 단계 순서와 각 단계의 산출물 위치�
 - 파이프라인은 저장소 루트의 `Jenkinsfile`로 정의합니다. PR이 열리거나 갱신될 때마다 실행되고, 결과를 GitHub PR 상태 검사로 보고합니다.
 - 파이프라인 단계: Python 3.12 가상 환경 준비 → `ruff check` / `ruff format --check` → 단위 테스트와 Branch 커버리지 100% 검사 → 함수 길이·주석률 검사 → 통합 테스트(`tests/integration`이 있을 때). 한 단계라도 실패하면 PR 검사가 실패합니다.
 - `Jenkinsfile`은 Windows 노드용(`bat`)입니다. Python은 기본으로 `py -3.12`를 쓰고, Jenkins 환경 변수 `PYTHON_CMD`로 바꿀 수 있습니다. `bat` 블록의 각 명령 끝에는 `|| exit /b 1`을 붙여 실패가 빌드 실패로 이어지게 합니다.
-- **미구성 상태**: Jenkins 잡 생성, Jenkins와 GitHub 연동, `main` 브랜치 보호 규칙은 아직 설정되지 않았습니다. 설정하기 전까지는 PR을 열기 전에 위 명령을 로컬에서 직접 실행해 결과를 PR 본문에 적습니다.
+- **Jenkins 잡**: `ClaudePython-PR` (멀티브랜치). GitHub 자격 증명 ID `github-claudepython`. GitHub가 내부망 Jenkins에 웹훅을 보낼 수 없어 **5분마다 저장소를 스캔**합니다. 급하면 Jenkins에서 "Scan Repository Now"를 실행합니다.
+- **GitHub 보호 규칙**: `main`은 상태 검사 `continuous-integration/jenkins/pr-merge` 통과가 필수입니다.
+- 기존 `ClaudePython` 프리스타일 잡(매시 `main`에서 `dir` 실행)은 사용자 요청으로 그대로 둡니다.
+- PR을 열기 전에도 위 품질 명령을 로컬에서 실행해 결과를 PR 본문에 적습니다.
+- Jenkins 서비스 계정에서 `py` 런처를 찾지 못해, `Jenkinsfile`이 사용자 범위 Python 경로로 대체합니다. Python 3.12를 시스템 전체로 설치하면 이 대체 경로는 쓰이지 않습니다.
 
 ## 기타
 
