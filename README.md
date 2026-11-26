@@ -47,6 +47,20 @@ pip install -r requirements-dev.txt
 
 ## 사용 방법
 
+Web 시뮬레이터를 실행하고 브라우저에서 `http://127.0.0.1:8000/`을 엽니다. `--tick`을 주면 50 ms마다 평가해 입력 지연(DEGRADED)을 감지합니다.
+
+```bash
+cd src
+python -m child_lock.web.server --port 8000
+```
+
+입력 벡터를 반복 재생해 결정론을 확인합니다 (해시가 모두 같으면 종료 코드 0).
+
+```bash
+cd src
+python -m child_lock.replay ../vectors.json --repeat 1000
+```
+
 품질 검사를 모두 실행합니다.
 
 ```bash
@@ -66,9 +80,16 @@ ClaudePython/
 │   ├── 00_plan/        개발 계획서
 │   ├── 01_requirements/ SW 요구사항 사양서, Use Case, 추적표, OEM 질의
 │   ├── 02_architecture/ SW 아키텍처 설계서
-│   └── 03_detailed_design/ SW 상세 설계서
-├── src/child_lock/     전자식 차일드락 제어 SW (개발 중)
+│   ├── 03_detailed_design/ SW 상세 설계서
+│   └── 04_unit_test/   단위 시험 보고서
+├── src/child_lock/     전자식 차일드락 제어 SW
+│   ├── controller.py   평가 주기 실행 (ASIL B)
+│   ├── arbiter.py      출력 우선순위 규칙 표 (ASIL B)
+│   ├── validator.py, input_monitor.py, approach_guard.py, types.py (ASIL B)
+│   ├── driver_request.py, event_log.py, status.py, replay.py (QM)
+│   └── web/            Web 시뮬레이터 (QM)
 ├── tests/
+│   ├── unit/           단위 시험
 │   └── tools/          품질 검사 스크립트 테스트
 ├── tools/              품질 검사 스크립트 (함수 길이, 주석률)
 ├── Jenkinsfile         CI 품질 게이트
