@@ -64,7 +64,8 @@ ClaudePython/
 ├── .claude/            Claude Code 스킬·서브에이전트
 ├── docs/
 │   ├── 00_plan/        개발 계획서
-│   └── 01_requirements/ SW 요구사항 사양서, Use Case, 추적표, OEM 질의
+│   ├── 01_requirements/ SW 요구사항 사양서, Use Case, 추적표, OEM 질의
+│   └── 02_architecture/ SW 아키텍처 설계서
 ├── src/child_lock/     전자식 차일드락 제어 SW (개발 중)
 ├── tests/
 │   └── tools/          품질 검사 스크립트 테스트
