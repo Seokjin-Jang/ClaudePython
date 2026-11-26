@@ -1,0 +1,718 @@
+[
+ {
+  "now_s": 0.0,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 0.0
+  },
+  "command": {
+   "side": "all",
+   "action": "lock",
+   "source": "physical_button"
+  }
+ },
+ {
+  "now_s": 0.05,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 0.05
+  },
+  "command": {
+   "side": "left",
+   "action": "unlock",
+   "source": "avn"
+  }
+ },
+ {
+  "now_s": 0.1,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": true,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 0.1
+  },
+  "command": {
+   "side": "left",
+   "action": "unlock",
+   "source": "avn"
+  }
+ },
+ {
+  "now_s": 0.15,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 0.15
+  },
+  "command": {
+   "side": "right",
+   "action": "unlock",
+   "source": "voice"
+  }
+ },
+ {
+  "now_s": 0.2,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 0.2
+  },
+  "command": {
+   "side": "left",
+   "action": "lock",
+   "source": "mobile_app"
+  }
+ },
+ {
+  "now_s": 0.25,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 0.25
+  },
+  "command": {
+   "side": "middle",
+   "action": "lock",
+   "source": "avn"
+  }
+ },
+ {
+  "now_s": 0.3,
+  "vehicle": {
+   "vehicle_speed_kph": 2.9,
+   "gear": "D",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 0.3
+  }
+ },
+ {
+  "now_s": 0.35,
+  "vehicle": {
+   "vehicle_speed_kph": 3.0,
+   "gear": "D",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 0.35
+  }
+ },
+ {
+  "now_s": 0.4,
+  "vehicle": {
+   "vehicle_speed_kph": 30.0,
+   "gear": "D",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 0.4
+  },
+  "command": {
+   "side": "all",
+   "action": "unlock",
+   "source": "avn"
+  }
+ },
+ {
+  "now_s": 0.45,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 0.45
+  }
+ },
+ {
+  "now_s": 0.5,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 0.5
+  },
+  "command": {
+   "side": "all",
+   "action": "unlock",
+   "source": "avn"
+  }
+ },
+ {
+  "now_s": 0.55,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": true,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 0.55
+  },
+  "command": {
+   "side": "right",
+   "action": "unlock",
+   "source": "avn"
+  }
+ },
+ {
+  "now_s": 0.6,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": true,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 0.6
+  }
+ },
+ {
+  "now_s": 4.6,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": true,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 4.6
+  },
+  "command": {
+   "side": "right",
+   "action": "unlock",
+   "source": "avn"
+  }
+ },
+ {
+  "now_s": 4.65,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 4.65
+  }
+ },
+ {
+  "now_s": 4.7,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 4.7
+  },
+  "command": {
+   "side": "right",
+   "action": "unlock",
+   "source": "avn"
+  }
+ },
+ {
+  "now_s": 4.75,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 4.75
+  },
+  "command": {
+   "side": "all",
+   "action": "lock",
+   "source": "avn"
+  }
+ },
+ {
+  "now_s": 4.8,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": true,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 4.8
+  }
+ },
+ {
+  "now_s": 4.85,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 4.85
+  },
+  "command": {
+   "side": "all",
+   "action": "lock",
+   "source": "avn"
+  }
+ },
+ {
+  "now_s": 4.9,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": true,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 4.9
+  }
+ },
+ {
+  "now_s": 4.95,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 4.95
+  },
+  "command": {
+   "side": "all",
+   "action": "lock",
+   "source": "avn"
+  }
+ },
+ {
+  "now_s": 5.0,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": true,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 5.0
+  }
+ },
+ {
+  "now_s": 5.05,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": true,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 5.05
+  }
+ },
+ {
+  "now_s": 5.1,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": true,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 5.1
+  }
+ },
+ {
+  "now_s": 5.15,
+  "vehicle": {
+   "vehicle_speed_kph": 300.1,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 5.15
+  }
+ },
+ {
+  "now_s": 5.2
+ },
+ {
+  "now_s": 5.5
+ },
+ {
+  "now_s": 5.55,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 5.55
+  }
+ },
+ {
+  "now_s": 5.6,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 5.6
+  },
+  "command": {
+   "side": "all",
+   "action": "lock",
+   "source": "avn"
+  }
+ },
+ {
+  "now_s": 5.65,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": true,
+   "timestamp_s": 5.65
+  },
+  "command": {
+   "side": "all",
+   "action": "unlock",
+   "source": "avn"
+  }
+ },
+ {
+  "now_s": 5.7,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 5.7
+  }
+ },
+ {
+  "now_s": 5.75,
+  "vehicle": {
+   "vehicle_speed_kph": 40.0,
+   "gear": "D",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 5.75
+  }
+ },
+ {
+  "now_s": 5.8,
+  "vehicle": {
+   "vehicle_speed_kph": 40.0,
+   "gear": "D",
+   "crash_status": "PENDING",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 5.8
+  }
+ },
+ {
+  "now_s": 5.85,
+  "vehicle": {
+   "vehicle_speed_kph": 40.0,
+   "gear": "D",
+   "crash_status": "CONFIRMED",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": true,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 5.85
+  }
+ },
+ {
+  "now_s": 5.9,
+  "vehicle": {
+   "vehicle_speed_kph": 40.0,
+   "gear": "D",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 5.9
+  }
+ },
+ {
+  "now_s": 5.95,
+  "vehicle": {
+   "vehicle_speed_kph": 0.0,
+   "gear": "P",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": false,
+   "sensor_fault": false,
+   "timestamp_s": 5.95
+  }
+ },
+ {
+  "now_s": 6.0,
+  "vehicle": {
+   "vehicle_speed_kph": 10.0,
+   "gear": "D",
+   "crash_status": "NONE",
+   "rear_left_approach_risk": false,
+   "rear_right_approach_risk": false,
+   "fire_detected": false,
+   "overtemperature_detected": false,
+   "adult_present": false,
+   "isofix_left": false,
+   "isofix_right": false,
+   "ignition_on": true,
+   "sensor_fault": false,
+   "timestamp_s": 6.0
+  }
+ }
+]
