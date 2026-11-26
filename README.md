@@ -58,7 +58,7 @@ python -m child_lock.web.server --port 8000
 
 ```bash
 cd src
-python -m child_lock.replay ../vectors.json --repeat 1000
+python -m child_lock.replay ../tests/vectors/uc_all.json --repeat 1000
 ```
 
 품질 검사를 모두 실행합니다.
@@ -66,7 +66,7 @@ python -m child_lock.replay ../vectors.json --repeat 1000
 ```bash
 ruff check src tools tests
 ruff format --check src tools tests
-pytest tests --ignore=tests/integration --cov=src --cov=tools --cov-branch --cov-fail-under=100
+pytest tests --ignore=tests/integration --ignore=tests/system --cov=src --cov=tools --cov-branch --cov-fail-under=100
 python tools/check_function_length.py src tools tests
 python tools/check_comment_ratio.py src tools tests
 ```
@@ -82,7 +82,8 @@ ClaudePython/
 │   ├── 02_architecture/ SW 아키텍처 설계서
 │   ├── 03_detailed_design/ SW 상세 설계서
 │   ├── 04_unit_test/   단위 시험 보고서
-│   └── 05_integration_test/ 통합 시험 사양·결과, SBOM
+│   ├── 05_integration_test/ 통합 시험 사양·결과, SBOM
+│   └── 06_system_test/ 시스템 시험 케이스(xlsx·json), 결과 보고서
 ├── src/child_lock/     전자식 차일드락 제어 SW
 │   ├── controller.py   평가 주기 실행 (ASIL B)
 │   ├── arbiter.py      출력 우선순위 규칙 표 (ASIL B)
@@ -92,6 +93,7 @@ ClaudePython/
 ├── tests/
 │   ├── unit/           단위 시험
 │   ├── integration/    통합 시험 (실제 HTTP 서버, 프로세스 재기동)
+│   ├── system/         시스템 시험 실행기 (stc_cases.json 자동 실행)
 │   ├── vectors/        Use Case 입력 벡터 (결정론 재생)
 │   └── tools/          품질 검사 스크립트 테스트
 ├── tools/              품질 검사 스크립트 (함수 길이, 주석률)
