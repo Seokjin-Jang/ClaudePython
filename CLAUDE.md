@@ -99,10 +99,11 @@ A-SPICE 절차를 따릅니다. 단계 순서와 각 단계의 산출물 위치�
 
 ## CI (Jenkins)
 
-- Jenkins 서버: `172.16.7.128`
+- Jenkins 서버: `http://172.16.7.128` (Jenkins 2.580.2, 실행 노드는 Built-In Node 1대, Windows 11)
+- **Jenkins API 토큰과 GitHub 토큰은 git에 저장하지 않습니다.** 파일, 커밋 메시지, PR 본문, 문서 어디에도 적지 않습니다. Jenkins 안의 비밀 값은 Jenkins Credentials에만 둡니다.
 - 파이프라인은 저장소 루트의 `Jenkinsfile`로 정의합니다. PR이 열리거나 갱신될 때마다 실행되고, 결과를 GitHub PR 상태 검사로 보고합니다.
 - 파이프라인 단계: Python 3.12 가상 환경 준비 → `ruff check` / `ruff format --check` → 단위 테스트와 Branch 커버리지 100% 검사 → 함수 길이·주석률 검사 → 통합 테스트(`tests/integration`이 있을 때). 한 단계라도 실패하면 PR 검사가 실패합니다.
-- `Jenkinsfile`은 Linux 에이전트(`python3.12` 설치)를 전제로 작성돼 있습니다.
+- `Jenkinsfile`은 Windows 노드용(`bat`)입니다. Python은 기본으로 `py -3.12`를 쓰고, Jenkins 환경 변수 `PYTHON_CMD`로 바꿀 수 있습니다. `bat` 블록의 각 명령 끝에는 `|| exit /b 1`을 붙여 실패가 빌드 실패로 이어지게 합니다.
 - **미구성 상태**: Jenkins 잡 생성, Jenkins와 GitHub 연동, `main` 브랜치 보호 규칙은 아직 설정되지 않았습니다. 설정하기 전까지는 PR을 열기 전에 위 명령을 로컬에서 직접 실행해 결과를 PR 본문에 적습니다.
 
 ## 기타
