@@ -22,6 +22,8 @@ ClaudePython에서는 OEM-A의 전자식 차일드락 제어 SW(교육용 가상
   - `src/child_lock/`: 소스 코드
   - `tests/unit/`: 단위 테스트
   - `tests/integration/`: 통합 테스트
+  - `tests/system/`: 시스템 시험 실행기 (`docs/06_system_test/stc_cases.json`의 `automation` 단계를 실제 HTTP 서버에 실행)
+  - `tests/vectors/`: Use Case 입력 벡터 (결정론 재생)
   - `tests/tools/`: 품질 검사 스크립트의 테스트
   - `docs/`: A-SPICE 산출물(아래 "개발 절차" 참고)
   - `tools/`: 품질 검사 스크립트(`check_function_length.py`, `check_comment_ratio.py`, 공용 `line_kinds.py`)
@@ -51,8 +53,8 @@ A-SPICE 절차를 따릅니다. 단계 순서와 각 단계의 산출물 위치�
 
 | 항목 | 기준 | 측정 방법 |
 |---|---|---|
-| 단위 테스트 성공률 | 100% | `pytest tests --ignore=tests/integration` — 실패 0건. `skip`/`xfail`은 사용자 승인 없이 쓰지 않음 |
-| Branch 커버리지 | **반드시** 100% | `pytest tests --ignore=tests/integration --cov=src --cov=tools --cov-branch --cov-fail-under=100` |
+| 단위 테스트 성공률 | 100% | `pytest tests --ignore=tests/integration --ignore=tests/system` — 실패 0건. `skip`/`xfail`은 사용자 승인 없이 쓰지 않음 |
+| Branch 커버리지 | **반드시** 100% | `pytest tests --ignore=tests/integration --ignore=tests/system --cov=src --cov=tools --cov-branch --cov-fail-under=100` |
 | 순환 복잡도 | 함수당 **반드시** 10 이하 | ruff `C901` 규칙, `max-complexity = 10` |
 | 함수 길이 | 순수 코드 50줄 이하 | `python tools/check_function_length.py src tools tests` (빈 줄, 주석, docstring 제외) |
 | 주석률 | 파일별 20% 이상 (테스트 파일 포함) | `python tools/check_comment_ratio.py src tools tests` — (주석 줄 + docstring 줄) ÷ (코드 줄 + 주석 줄 + docstring 줄), 빈 줄 제외 |

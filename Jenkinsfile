@@ -45,6 +45,7 @@ pipeline {
             steps {
                 bat '''
                     %VENV_PY% -m pytest tests --ignore=tests/integration ^
+                        --ignore=tests/system ^
                         --cov=src --cov=tools --cov-branch ^
                         --cov-fail-under=100 ^
                         --junitxml=reports/unit.xml || exit /b 1
@@ -65,6 +66,15 @@ pipeline {
                 bat '''
                     %VENV_PY% -m pytest tests/integration ^
                         --junitxml=reports/integration.xml || exit /b 1
+                '''
+            }
+        }
+        stage('시스템 테스트') {
+            when { expression { fileExists('tests/system') } }
+            steps {
+                bat '''
+                    %VENV_PY% -m pytest tests/system ^
+                        --junitxml=reports/system.xml || exit /b 1
                 '''
             }
         }
