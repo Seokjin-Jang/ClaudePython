@@ -6,19 +6,25 @@
 
 ## 프로젝트 현황
 
-ClaudePython은 AI(Claude)를 활용해 작성한 파이썬 코드 모음입니다. 아직 파이썬 소스 코드, `pyproject.toml`, 테스트, `Jenkinsfile`이 없습니다. 현재 저장소에 있는 것은 `README.md`, 이 파일, 그리고 `.claude/` 아래의 Claude Code 설정(스킬·서브에이전트)입니다. 아래 규칙에서 "만든다"고 적은 설정 파일은 첫 코드를 추가할 때 함께 만듭니다.
+ClaudePython에서는 OEM-A의 전자식 차일드락 제어 SW(교육용 가상 프로젝트 VJ-ECL-2026)를 PC/SIL 참조 구현으로 개발합니다. 개발 계획과 결정 사항은 `docs/00_plan/개발계획서.md`에 있습니다.
+
+- OEM 입력 문서는 `OEM/`에 두지만 **git에 올리지 않습니다**(`.gitignore`). 문서에 교육 과정 밖 공개·배포 금지 조건이 있고 이 저장소는 공개 저장소이기 때문입니다.
+- 패키지는 `src/child_lock/`, Web 시뮬레이터는 Python 표준 라이브러리(`http.server`)로만 만듭니다. 외부 런타임 의존성을 추가하지 않습니다.
 
 ## 개발 환경
 
-- **Python 3.14**를 사용합니다. `pyproject.toml`에 `requires-python = ">=3.14"`로 적고, 가상 환경은 `.venv`에 만듭니다.
-- **단위 테스트**: `pytest` + `pytest-cov`.
-- **정적 분석**: `ruff` (`ruff check`, `ruff format --check`). 설정은 `pyproject.toml`의 `[tool.ruff]`에 둡니다.
+- **Python 3.12**를 사용합니다. OEM 사양서의 실행 환경(Python 3.12 PC/SIL)에 맞춘 것입니다. `pyproject.toml`에 `requires-python = ">=3.12"`로 적혀 있습니다.
+- 가상 환경은 `.venv`에 만들고 개발 도구는 `pip install -r requirements-dev.txt`로 설치합니다.
+  - Windows에서 `python` 명령이 Microsoft Store 바로가기로 연결되면 `C:\Users\user\AppData\Local\Programs\Python\Python312\python.exe -m venv .venv`로 만듭니다.
+  - 이후 명령은 `.\.venv\Scripts\python.exe`, `.\.venv\Scripts\ruff.exe`처럼 가상 환경 안의 실행 파일로 실행합니다.
+- **단위 테스트**: `pytest` + `pytest-cov`. **정적 분석**: `ruff`. 설정은 모두 `pyproject.toml`에 있습니다.
 - **디렉터리 구조**:
-  - `src/<패키지>/`: 소스 코드
+  - `src/child_lock/`: 소스 코드
   - `tests/unit/`: 단위 테스트
   - `tests/integration/`: 통합 테스트
+  - `tests/tools/`: 품질 검사 스크립트의 테스트
   - `docs/`: A-SPICE 산출물(아래 "개발 절차" 참고)
-  - `tools/`: 품질 검사 스크립트
+  - `tools/`: 품질 검사 스크립트(`check_function_length.py`, `check_comment_ratio.py`, 공용 `line_kinds.py`)
 
 ## 개발 절차
 
@@ -45,13 +51,15 @@ A-SPICE 절차를 따릅니다. 단계 순서와 각 단계의 산출물 위치�
 
 | 항목 | 기준 | 측정 방법 |
 |---|---|---|
-| 단위 테스트 성공률 | 100% | `pytest tests/unit` — 실패 0건. `skip`/`xfail`은 사용자 승인 없이 쓰지 않음 |
-| Branch 커버리지 | **반드시** 100% | `pytest tests/unit --cov=src --cov-branch --cov-fail-under=100` |
+| 단위 테스트 성공률 | 100% | `pytest tests --ignore=tests/integration` — 실패 0건. `skip`/`xfail`은 사용자 승인 없이 쓰지 않음 |
+| Branch 커버리지 | **반드시** 100% | `pytest tests --ignore=tests/integration --cov=src --cov=tools --cov-branch --cov-fail-under=100` |
 | 순환 복잡도 | 함수당 **반드시** 10 이하 | ruff `C901` 규칙, `max-complexity = 10` |
-| 함수 길이 | 순수 코드 50줄 이하 | `tools/check_function_length.py` (빈 줄, 주석, docstring 제외) |
-| 주석률 | 파일별 20% 이상 | `tools/check_comment_ratio.py` — (주석 줄 + docstring 줄) ÷ (코드 줄 + 주석 줄 + docstring 줄), 빈 줄 제외 |
+| 함수 길이 | 순수 코드 50줄 이하 | `python tools/check_function_length.py src tools tests` (빈 줄, 주석, docstring 제외) |
+| 주석률 | 파일별 20% 이상 (테스트 파일 포함) | `python tools/check_comment_ratio.py src tools tests` — (주석 줄 + docstring 줄) ÷ (코드 줄 + 주석 줄 + docstring 줄), 빈 줄 제외 |
 | 명명 규칙 | Google Python Style Guide | ruff `N`(pep8-naming) 규칙 + 리뷰 |
-| 정적 분석 | 경고 0건 | `ruff check src tests`, `ruff format --check src tests` |
+| 정적 분석 | 경고 0건 | `ruff check src tools tests`, `ruff format --check src tools tests` |
+
+- 테스트 하나만 실행: `pytest tests/unit/test_x.py::test_name`
 
 - 커버리지가 100%에 못 미치면 테스트를 추가해 100%를 달성할 때까지 반복합니다. 커버리지를 맞추려고 `# pragma: no cover`로 코드를 제외하지 않습니다. 정말 테스트할 수 없는 코드(예: `if __name__ == "__main__":`)만 사유를 주석으로 남기고 제외합니다.
 - **명명 규칙**(Google Python Style Guide): 모듈·패키지 `lower_with_under`, 클래스·예외 `CapWords`, 함수·메서드·변수 `lower_with_under`, 상수 `CAPS_WITH_UNDER`, 내부용 이름은 앞에 `_`. 한 줄은 80자 이하.
@@ -68,7 +76,6 @@ A-SPICE 절차를 따릅니다. 단계 순서와 각 단계의 산출물 위치�
       @req SWR-001
       """
   ```
-- `tools/check_function_length.py`, `tools/check_comment_ratio.py`는 아직 없습니다. 첫 코드를 추가할 때 TDD로 함께 만듭니다.
 
 ## Git 브랜치 규칙 (GitHub Flow)
 
@@ -92,10 +99,16 @@ A-SPICE 절차를 따릅니다. 단계 순서와 각 단계의 산출물 위치�
 
 ## CI (Jenkins)
 
-- Jenkins 서버: `172.16.7.128`
+- Jenkins 서버: `http://172.16.7.128` (Jenkins 2.580.2, 실행 노드는 Built-In Node 1대, Windows 11)
+- **Jenkins API 토큰과 GitHub 토큰은 git에 저장하지 않습니다.** 파일, 커밋 메시지, PR 본문, 문서 어디에도 적지 않습니다. Jenkins 안의 비밀 값은 Jenkins Credentials에만 둡니다.
 - 파이프라인은 저장소 루트의 `Jenkinsfile`로 정의합니다. PR이 열리거나 갱신될 때마다 실행되고, 결과를 GitHub PR 상태 검사로 보고합니다.
-- 파이프라인 단계: Python 3.14 가상 환경 준비 → `ruff check` / `ruff format --check` → 단위 테스트와 Branch 커버리지 100% 검사 → 함수 길이·주석률 검사 → 통합 테스트. 한 단계라도 실패하면 PR 검사가 실패합니다.
-- **미구성 상태**: `Jenkinsfile`, Jenkins와 GitHub 연동, `main` 브랜치 보호 규칙은 아직 설정되지 않았습니다. 설정하기 전까지는 PR을 열기 전에 위 명령을 로컬에서 직접 실행해 결과를 PR 본문에 적습니다.
+- 파이프라인 단계: Python 3.12 가상 환경 준비 → `ruff check` / `ruff format --check` → 단위 테스트와 Branch 커버리지 100% 검사 → 함수 길이·주석률 검사 → 통합 테스트(`tests/integration`이 있을 때). 한 단계라도 실패하면 PR 검사가 실패합니다.
+- `Jenkinsfile`은 Windows 노드용(`bat`)입니다. Python은 기본으로 `py -3.12`를 쓰고, Jenkins 환경 변수 `PYTHON_CMD`로 바꿀 수 있습니다. `bat` 블록의 각 명령 끝에는 `|| exit /b 1`을 붙여 실패가 빌드 실패로 이어지게 합니다.
+- **Jenkins 잡**: `ClaudePython-PR` (멀티브랜치). GitHub 자격 증명 ID `github-claudepython`. GitHub가 내부망 Jenkins에 웹훅을 보낼 수 없어 **5분마다 저장소를 스캔**합니다. 급하면 Jenkins에서 "Scan Repository Now"를 실행합니다.
+- **GitHub 보호 규칙**: `main`은 상태 검사 `continuous-integration/jenkins/pr-merge` 통과가 필수입니다.
+- 기존 `ClaudePython` 프리스타일 잡(매시 `main`에서 `dir` 실행)은 사용자 요청으로 그대로 둡니다.
+- PR을 열기 전에도 위 품질 명령을 로컬에서 실행해 결과를 PR 본문에 적습니다.
+- Jenkins 서비스 계정에서 `py` 런처를 찾지 못해, `Jenkinsfile`이 사용자 범위 Python 경로로 대체합니다. Python 3.12를 시스템 전체로 설치하면 이 대체 경로는 쓰이지 않습니다.
 
 ## 기타
 
