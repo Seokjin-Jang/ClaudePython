@@ -1,0 +1,7 @@
+# PICT binary downloaded by the sw-system-test-case skill
+.claude/skills/*/bin/
+
+# Python
+__pycache__/
+*.pyc
+.venv/

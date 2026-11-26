@@ -1,0 +1,11 @@
+schema_version: "1.1"
+name: wiper-pasted-with-template
+expected_outcome: |
+  wiper_STC.xlsx built on the user's stc_form.xlsx template (its header row, column names and other
+  sheets preserved), with functional and non-functional cases on separate sheets. Every REQ-WP-01..07
+  is traced by at least one non-proposal case. Boundary value analysis covers the speed bands
+  (30/31, 80/81, 5 km/h), the 0.5 s washer threshold, 15.0 A / 200 ms overcurrent and the 100 ms
+  response time; equivalence classes cover switch modes and invalid speed (0xFF); switch x speed x
+  hood combinations use Microsoft PICT; edge cases labelled "WoW 검증"; proposals marked "제안".
+context:
+  scaffold_script: place-files.sh

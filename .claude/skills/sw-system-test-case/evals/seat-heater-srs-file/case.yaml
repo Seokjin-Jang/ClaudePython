@@ -1,0 +1,12 @@
+schema_version: "1.1"
+name: seat-heater-srs-file
+expected_outcome: |
+  seat_heater_STC.xlsx with separate functional and non-functional sheets. Every SRS-SH-001..008
+  requirement is traced by at least one non-proposal test case. Boundary value analysis is applied to
+  the voltage (9.0/16.0, 9.5/15.5), temperature (50.0/45.0, -40.0/125.0) and timing (100 ms, 1 s, 30 min,
+  200 ms) limits; equivalence classes are applied to switch stages and signal validity; the
+  remote-start combinations are derived with Microsoft PICT; edge cases are labelled "WoW 검증";
+  proposed extra cases are marked "제안". Test cases are executable (concrete values, observable
+  expected outputs).
+context:
+  scaffold_script: place-files.sh
